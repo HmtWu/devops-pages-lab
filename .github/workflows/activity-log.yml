@@ -2,13 +2,11 @@ name: Update Activity Log
 
 on:
   schedule:
-    - cron: '0 0 * * *'       # 每天 00:00 UTC 自動更新（O 級排程理由可以寫進報告）
-  workflow_dispatch:           # 手動執行
-  push:
-    branches: [ main ]         # 你更新 README 也會觸發一次
+    - cron: '0 0 * * *'       # 每天 00:00 UTC 自動更新（台灣時間早上 8 點）
+  workflow_dispatch:           # 允許手動執行
 
 permissions:
-  contents: write              # 允許 bot 寫回 README.md
+  contents: write              # 允許寫入 README
 
 jobs:
   update:
@@ -20,12 +18,7 @@ jobs:
       - name: Generate GitHub Activity
         uses: jamesgeorge007/github-activity-readme@v0.4.1
         env:
-          # 若只需要公開活動，這行可改用 ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          MAX_LINES: 5         # 顯示最近 5 筆活動
+          MAX_LINES: 5
           COMMIT_MSG: "chore: auto-update activity log"
-
-      - name: Skip commit when no changes
-        run: |
-          git diff --exit-code || exit 0
