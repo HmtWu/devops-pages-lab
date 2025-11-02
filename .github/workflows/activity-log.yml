@@ -2,11 +2,11 @@ name: Update Activity Log
 
 on:
   schedule:
-    - cron: '0 0 * * *'       # 每天 00:00 UTC 自動更新
-  workflow_dispatch:           # 手動執行
+    - cron: '0 0 * * *'       # 每天自動執行
+  workflow_dispatch:           # 可手動執行
 
 permissions:
-  contents: write
+  contents: write              # 允許寫回 README
 
 jobs:
   update:
@@ -15,10 +15,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Generate GitHub Activity (supports commits & stars)
-        uses: devpapa/github-activity-readme@main
-        with:
-          GH_USERNAME: HmtWu
-          COMMIT_MSG: "chore: auto-update activity log"
-          MAX_LINES: 5
+      - name: Generate GitHub Activity
+        uses: jamesgeorge007/github-activity-readme@v0.4.1
+        env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          MAX_LINES: 5
+          COMMIT_MSG: "chore: auto-update activity log"
