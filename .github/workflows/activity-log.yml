@@ -2,8 +2,8 @@ name: Update Activity Log
 
 on:
   schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch:
+    - cron: '0 0 * * *'       # 每天 00:00 UTC 自動更新
+  workflow_dispatch:           # 手動執行
 
 permissions:
   contents: write
@@ -15,10 +15,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Generate GitHub Activity (Extended)
-        uses: devpachi/github-activity-readme@main
+      - name: Generate GitHub Activity (supports commits & stars)
+        uses: devpapa/github-activity-readme@main
         with:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-          username: HmtWu
-          max_lines: 5
+          GH_USERNAME: HmtWu
           COMMIT_MSG: "chore: auto-update activity log"
+          MAX_LINES: 5
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
