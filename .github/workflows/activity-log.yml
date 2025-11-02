@@ -2,10 +2,13 @@ name: Update Activity Log
 
 on:
   schedule:
-    - cron: '0 0 * * *' # 每天 00:00 UTC 自動更新
-  workflow_dispatch:
+    - cron: '0 0 * * *'       # 每天 00:00 UTC 自動更新（O 級排程理由可以寫進報告）
+  workflow_dispatch:           # 手動執行
   push:
-    branches: [ main ]
+    branches: [ main ]         # 你更新 README 也會觸發一次
+
+permissions:
+  contents: write              # 允許 bot 寫回 README.md
 
 jobs:
   update:
@@ -15,16 +18,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Generate GitHub Activity
-        uses: JamesIves/github-activity-readme@v0.3.4
-        with:
-          COMMIT_MSG: 'chore: update activity log'
-          MAX_LINES: 5
+        uses: jamesgeorge007/github-activity-readme@v0.4.1
+        env:
+          # 若只需要公開活動，這行可改用 ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          MAX_LINES: 5         # 顯示最近 5 筆活動
+          COMMIT_MSG: "chore: auto-update activity log"
 
-      - name: Push Changes
+      - name: Skip commit when no changes
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          git commit -m "chore: auto-update activity log" || echo "No changes"
-          git push
+          git diff --exit-code || exit 0
