@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   update:
@@ -16,10 +15,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Generate GitHub Activity
-        uses: jamesgeorge007/github-activity-readme@v0.4.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      - name: Generate GitHub Activity (Extended)
+        uses: devpachi/github-activity-readme@main
         with:
-          MAX_LINES: 5
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          username: HmtWu
+          max_lines: 5
           COMMIT_MSG: "chore: auto-update activity log"
