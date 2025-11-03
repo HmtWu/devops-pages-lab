@@ -5,7 +5,7 @@
 | _更新中..._ | _由 GitHub Actions 自動更新_ |
 
 <!--START_SECTION:activity-->
-1. 🔒 Reopened issue [#1](https://github.com/HmtWu/devops-pages-lab/issues/1) in [HmtWu/devops-pages-lab](https://github.com/HmtWu/devops-pages-lab)
+1. ❗ Opened issue [#2](https://github.com/HmtWu/devops-pages-lab/issues/2) in [HmtWu/devops-pages-lab](https://github.com/HmtWu/devops-pages-lab)
 
 <!--END_SECTION:activity-->
 
