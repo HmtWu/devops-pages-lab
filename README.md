@@ -5,7 +5,7 @@
 
 ## 🕓 最近活動紀錄（Auto Updated）
 <!--START_SECTION:activity-->
-這裡會被 GitHub Actions 自動更新
+1. ❗ Opened issue [#1](https://github.com/HmtWu/devops-pages-lab/issues/1) in [HmtWu/devops-pages-lab](https://github.com/HmtWu/devops-pages-lab)
 <!--END_SECTION:activity-->
 
 ---
