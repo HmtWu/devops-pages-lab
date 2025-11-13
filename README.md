@@ -7,7 +7,7 @@
 ## 🕓 最近活動紀錄（Auto Updated）
 
 <!--START_SECTION:activity-->
-1. 🔒 Reopened issue [#1](https://github.com/HmtWu/devops-pages-lab/issues/1) in [HmtWu/devops-pages-lab](https://github.com/HmtWu/devops-pages-lab)
+1. 💪 Opened PR [#4](undefined) in [Gruandal/cloud-test-project](https://github.com/Gruandal/cloud-test-project)
 <!--END_SECTION:activity-->
 
 ---
