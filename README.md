@@ -7,7 +7,7 @@
 ## 🕓 最近活動紀錄（Auto Updated）
 
 <!--START_SECTION:activity-->
-1. 💪 Opened PR [#4](undefined) in [Gruandal/cloud-test-project](https://github.com/Gruandal/cloud-test-project)
+1. 💪 Opened PR [#4](undefined) in [Max7414/SimpleSpilt](https://github.com/Max7414/SimpleSpilt)
 <!--END_SECTION:activity-->
 
 ---
